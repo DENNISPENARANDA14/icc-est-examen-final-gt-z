@@ -1,5 +1,7 @@
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.Queue;
 import java.util.Set;
 import java.util.Stack;
 
@@ -9,6 +11,27 @@ import models.Maquina;
 public class App {
     public static void main(String[] args) throws Exception {
         List<Maquina> maquinas = crearMaquinas();
+        MaquinaController controller =new MaquinaController();
+
+        System.out.println("\n Metodo A - filtrar por subred < 100");
+        Stack<Maquina> pila = controller.filtrarPorSubred(maquinas, 30);
+        pila.forEach(System.out::println);
+
+
+        System.out.println("\n \n Metodo B - ordena por subred");
+        Set<Maquina> ordenado = controller.ordenarPorSubred(pila);
+        ordenado.forEach(System.out::println);
+
+        System.out.println("\n \n Metodo C - agrupar por riesgo");
+        Map<Integer, Queue<Maquina>> mapa =controller.agruparPorRiesgo(maquinas);
+        mapa.forEach((riesgo,cola) -> {
+            System.out.println("Riesgo " + riesgo + " -> "+ cola);
+        });
+
+        System.out.println("\n \n Metodo D - explotar grupo");
+        Stack<Maquina> grupoMayor = controller.explotarGrupo(mapa);
+        grupoMayor.forEach(System.out::println);
+
 
     }
 

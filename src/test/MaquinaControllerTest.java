@@ -71,11 +71,11 @@ public class MaquinaControllerTest {
     @Test
     public void testMakeSubRed() {
         Maquina m = new Maquina("Nodo99", "10.0.180.15", Arrays.asList(10, 15, 20));
-        ValidacionesMaquina.validarCampoSubred(m, m.getSubred()); // 180 es el tercer octeto de la IP
+        ValidacionesMaquina.validarCampoSubred(m, m.getSubRed()); // 180 es el tercer octeto de la IP
         m = new Maquina("Nodo6", "169.238.150.174", Arrays.asList(6, 14, 3));
-        ValidacionesMaquina.validarCampoSubred(m, m.getSubred());
+        ValidacionesMaquina.validarCampoSubred(m, m.getSubRed());
         m = new Maquina("DB13", "71.248.50.86", Arrays.asList(17, 11, 12));
-        ValidacionesMaquina.validarCampoSubred(m, m.getSubred());
+        ValidacionesMaquina.validarCampoSubred(m, m.getSubRed());
     }
 
     @Test
